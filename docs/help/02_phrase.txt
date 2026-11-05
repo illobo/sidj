@@ -1,0 +1,16 @@
+PHRASE
+16 steps: note, instrument, command
+and command value.
+
+note   {SPACE+L/R} semitone, {U/D} octave
+       type {A-G} and {0-7}
+instr  {00-3F}; a new note takes the last
+       {CTRL+RIGHT} edits the instrument
+cmd    type a letter; {C=+SPACE} clears
+value  {00-FF}, {SPACE+U/D} +-10
+{C=+U/D}          first / last step
+{RETURN}          play / stop channel
+{CLR/HOME}        list / grid view
+{SHIFT+CLR/HOME}  drum view (REU)
+{CTRL+UP} PROJECT {CTRL+DOWN} GROOVE
+next page: grid and drum view

@@ -1,0 +1,16 @@
+PROJECT
+TEMPO  40-295: type 3 digits,
+       {SPACE+L/R} 1, {SPACE+U/D} 10
+       {RETURN} in time: tap tempo
+       {C=+L/R} held: nudge -3% / +3%
+TRANSP {SPACE+L/R} 1, {SPACE+U/D} 12
+NAME   16 characters: type A-Z 0-9,
+       {SPACE+CRSR}, {C=+SPACE} space
+CLONE  DEEP copies, SLIM shares
+LOAD   {SPACE}: FILE, first file
+SAVE   {SPACE}: FILE, save row
+CLEAN  {SPACE,SPACE}: empty project
+MOUSE  port, speed 0-3, acceleration
+
+{CTRL+DOWN} PHRASE
+{CTRL+RIGHT} SID SETUP

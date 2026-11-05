@@ -1,0 +1,17 @@
+FILE
+{U/D}                select a row
+{SPACE} on SV        save the project
+{SPACE,SPACE}        load project or kit
+{C=+SPACE} on SV     save a kit NAME.Kxx
+{C=+SPACE} twice     delete it
+{L/R}                drive 8 / REU slots
+{CTRL+UP}            back to PROJECT
+
+kit: the INSTR screen's instrument and
+the used ones after it, with tables.
+it loads into the instruments from the
+INSTR screen's one (drive only).
+REU slots (512K+): SV saves into the
+slot named like the project, or the
+first free one. Recovery: start with
+C= held to skip it.

@@ -1,0 +1,17 @@
+TABLE 00-1F
+runs while a note plays: a step per
+tick, per SPEED ticks, or per note
+(STEP ON).
+CT   SID control byte, -- no change:
+     81 noise 41 pulse 21 saw 11 tri
+TR   semitones added on this tick
+CMD  two commands with values, e.g.
+     S pulse width, X cutoff, O filter
+Hxy  jump to step y, x times (0: ever)
+
+{C=+L/R}        previous / next table
+{SPACE+L/R U/D} change a value
+{CTRL+C=} mark  {C=} copy  {CTRL+SPACE}
+each edit plays the instrument.
+the A command starts a table.
+{CTRL+LEFT}     back to INSTR

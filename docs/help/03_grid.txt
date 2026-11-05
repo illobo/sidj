@@ -1,0 +1,17 @@
+GRID VIEW AND DRUM VIEW
+grid ({CLR/HOME}): the steps as 4x4 boxes
+{CRSR}            move, {U/D}: 4 steps
+{C=+L/R}          field: note, instr,
+                  command, value
+{SPACE} {SPACE+CRSR} {C=+SPACE} as in the
+list. Mouse: click a step on / off,
+drag {U/D} note, {L/R} instrument,
+right drag: command value.
+drum view ({SHIFT+CLR/HOME}, REU):
+8 lanes (instruments) x 16 steps
+{L/R}  step       {U/D}  lane
+{SPACE}           hit on / off
+{C=+SPACE}        clear the step
+{SPACE+U/D}       hit +-1 semitone
+{C=+U/D}          shift the lanes
+{CLR/HOME}        back to the list

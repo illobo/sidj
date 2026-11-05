@@ -1,0 +1,16 @@
+COMMANDS A-K                 value xy
+A  start table xy
+B  play the note by chance: y in 16
+C  chord: 0, x, y semitones per tick
+D  delay the note xy ticks
+E  sustain x, release y
+F  fine tune, signed 1/128 semitone
+G  groove xy for this channel
+H  hop: H0y next phrase, at step y
+   Hxy back to step y, x times
+   HFF stop the channel
+K  kill: gate off after xy ticks
+
+B D G L Q Z work in phrases only.
+type the letter in the command field,
+the value in the next one.

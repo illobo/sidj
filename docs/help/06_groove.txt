@@ -1,0 +1,13 @@
+GROOVE 00-1F
+ticks per step, in turn. -- ends the
+groove; it starts again at step 0.
+groove 00 is 6,6: at 125 BPM a step is
+a sixteenth note.
+swing: 08 04 (long, short).
+
+{C=+L/R}        previous / next groove
+{SPACE+L/R U/D} change the ticks
+{G} in a phrase: this groove for the
+channel from that step.
+{CTRL+DOWN} on a G step opens it.
+{CTRL+UP}       back

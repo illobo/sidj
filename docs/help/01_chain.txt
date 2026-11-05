@@ -1,0 +1,17 @@
+CHAIN
+16 steps: a phrase 00-FE and a
+transpose. The chain ends at the first
+empty step.
+
+{SPACE,SPACE} on --  new phrase
+{SPACE+L/R}  -1/+1   {SPACE+U/D}  +-10
+transpose: {SPACE+L/R} semitone,
+           {SPACE+U/D} +-12
+{C=+U/D}             first / last step
+{RETURN}             play / stop channel
+{CTRL+RIGHT}         open the phrase
+{CTRL+LEFT}          back to SONG
+{CTRL+C=}  mark      {C=}  copy block
+{CTRL+SPACE}         paste
+CTRL held: {C=,SPACE} clones the phrase
+                     (PROJECT: CLONE)

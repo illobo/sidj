@@ -1,0 +1,64 @@
+{
+  "v": 3,
+  "attachments": {},
+  "boards": {
+    "Back.dc.html": {
+      "h": 800,
+      "page": "box",
+      "title": "Back",
+      "w": 600,
+      "x": 680,
+      "y": 0
+    },
+    "Card1.dc.html": {
+      "h": 1123,
+      "page": "card",
+      "title": "Card side 1",
+      "w": 794,
+      "x": 0,
+      "y": 0
+    },
+    "Card2.dc.html": {
+      "h": 1123,
+      "page": "card",
+      "title": "Card side 2",
+      "w": 794,
+      "x": 874,
+      "y": 0
+    },
+    "Main.dc.html": {
+      "h": 800,
+      "page": "box",
+      "title": "Front",
+      "w": 600,
+      "x": 0,
+      "y": 0
+    }
+  },
+  "createdOnFiles": {
+    "at": "2026-11-03T16:00:00Z",
+    "v": 1
+  },
+  "designSystems": [],
+  "launch": {
+    "view": "canvas"
+  },
+  "notes": {},
+  "order": [
+    "Card1.dc.html",
+    "Card2.dc.html",
+    "Main.dc.html",
+    "Back.dc.html"
+  ],
+  "pages": [
+    {
+      "id": "box",
+      "name": "Box"
+    },
+    {
+      "id": "card",
+      "name": "Reference card"
+    }
+  ],
+  "title": "SIDJ Box Art"
+}

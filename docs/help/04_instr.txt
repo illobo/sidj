@@ -1,0 +1,17 @@
+INSTRUMENT 00-3F
+{C=+L/R}  prev / next     {SPACE}  play
+PRESET: {SPACE+L/R}  prev / next, plays
+        {SPACE+U/D}  next / prev group
+        {00-1F}      type a number
+        {CTRL+SPACE} kit: 8 instruments
+        CTRL held, {SPACE}: next kit
+REU: presets 20-49, kits ELECTRO CHIP
+ROCK; they are stored as 00 CUSTOM.
+WAVE  T S P N RNG SYN: {SPACE+CRSR}
+AD SR  PW  SWEEP  FILTER OFF/USE/OWN
+L B H 3  RES  CUTOFF  FSWEEP
+HRESTART ticks + mode, HRSR, VIBRATO
+TABLE {SPACE,SPACE} new {CTRL+RIGHT} edit
+SPEED  STEP  TRANSP (off for drums)
+{CTRL+UP} SID SETUP {CTRL+RIGHT} TABLE
+{CTRL+DOWN} GROOVE  {CTRL+LEFT} PHRASE

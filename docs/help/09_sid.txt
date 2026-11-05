@@ -1,0 +1,15 @@
+SID SETUP
+shows the SID chip found at start-up:
+6581 or 8580. Nothing to change here.
+The presets are tuned for the 8580.
+
+{CTRL+LEFT}  PROJECT
+{CTRL+DOWN}  INSTR
+
+HELP PAGES (REU)
+{F2} (SHIFT+F1) or a click on the help
+row opens the page for this screen.
+{CRSR U/D} turns the pages, any other
+key or a click closes.
+SIDJ.HLP must be on the disk when SIDJ
+starts.

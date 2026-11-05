@@ -1,0 +1,17 @@
+SONG
+256 rows 00-FF, one column per channel.
+A field holds a chain 00-7F or --.
+
+{SPACE,SPACE} on --  new chain
+{SPACE} on --        the last chain
+{SPACE+L/R}  -1/+1   {SPACE+U/D}  +-10
+{C=+SPACE}  cut      {CTRL+SPACE}  paste
+{RETURN}             play from row / stop
+{CTRL+RETURN}        play all / stop
+{C=+U/D}             page 16 rows, or the
+                     next bookmark
+{C=,C=,C=}           bookmark on / off
+{CTRL+LEFT}          live mode on / off
+{CTRL+RIGHT}         open the chain
+{CTRL+C=}  mark      {F1 F3 F5}  mute
+{F7}  undo           {SHIFT+F7}  redo

@@ -1,0 +1,16 @@
+MOUSE (1351, PORT 1; PROJECT: MOUSE)
+click a field      cursor there
+click it again     SPACE
+drag U/D or L/R    SPACE + U/D or L/R
+right button       C= while held
+C= + click  cut    CTRL + click  paste
+click the map      change screen
+click a header     mute, right: solo
+click TEMPO        tap the tempo
+LIVE FX, rows 18-23: drag a bar to
+hold CUT RES VOL TAP TRN; FLT: click
+LP BP HP 3O. Right click or C= + click
+lets go. TAP: click in time, hold
+< or > to nudge.
+pointer on a field: help on row 24.
+click the help row: this help (REU).

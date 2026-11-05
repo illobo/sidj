@@ -1,0 +1,17 @@
+COMMANDS L-Z                 value xy
+L  slide to this note, speed xy
+M  master volume y
+O  filter type x: 1 LP 2 BP 4 HP
+   8 voice 3 off (add); resonance y
+P  pitch bend, signed 1/64 semitone
+   per tick
+Q  hard restart ticks 0-F
+R  retrigger every y ticks,
+   x: sustain change each time
+S  pulse width xy x 16
+T  tempo 28-FF: 40-255, 00-27: 256-295
+V  vibrato speed x, depth y
+W  SID control byte (SIDJ sets gate)
+X  filter cutoff xy
+Z  repeat the last command, adding
+   0-x and 0-y at random

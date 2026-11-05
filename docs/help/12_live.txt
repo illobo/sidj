@@ -1,0 +1,16 @@
+LIVE MODE (SONG SCREEN)
+{CTRL+LEFT}  live mode on / off
+each channel loops its chain; a queued
+chain starts when the playing one ends.
+{RETURN}             queue the chain
+{RETURN,RETURN}      at the phrase end
+{CTRL+RETURN}        queue a stop
+                     (twice: phrase end)
+hold {LEFT}, {RETURN}  queue the row
+> playing  * queued  X stop queued
+{F1 F3 F5}           mute 1 2 3
+hold {C=}, {CTRL}    mute cursor channel
+{C=+RETURN}          solo, again: all on
+mouse: click a chain: queue, twice:
+phrase end, right click: stop.
+HFF in a phrase stops the channel.
