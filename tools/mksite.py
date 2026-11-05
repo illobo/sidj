@@ -5,8 +5,9 @@ screenshots of tools/mkshots.py.
 python3 tools/mksite.py [shots dir] [out dir]   (defaults build/site-shots, build/site)
 
 Pages: index.html (title page, screens, download), one page per manual chapter
-(same chapters and numbering as MANUAL.md), quickref.html. Static HTML, no
-scripts; build/sidj.d64 is copied next to it for download.
+(same chapters and numbering as MANUAL.md), quickref.html, boxart.html (the
+boards of art/boxart/project). Static HTML, no scripts; build/sidj.d64 is
+copied next to it for download.
 """
 import html, os, re, shutil, sys
 from PIL import Image
@@ -34,6 +35,9 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 B = os.path.join(ROOT, "build")
 SHOTS = sys.argv[1] if len(sys.argv) > 1 else os.path.join(B, "site-shots")
 OUT = sys.argv[2] if len(sys.argv) > 2 else os.path.join(B, "site")
+BOXART = os.path.join(ROOT, "art", "boxart")
+BOARDS = {"box": (("Main", "front", "Front"), ("Back", "back", "Back")),        # art/boxart/project/canvas.json
+          "card": (("Card1", "card1", "Side 1"), ("Card2", "card2", "Side 2"))}
 
 # screenshots after a manual section (heading text starts with the key)
 FIGS = {
@@ -221,6 +225,10 @@ letter-spacing:1px;margin:8px 10px 8px 0;box-shadow:3px 3px 0 #dd8855,6px 6px 0 
 .disk li{margin:4px 0}
 .cards ul.keys{list-style:none;padding:0;display:flex;gap:14px;flex-wrap:wrap}
 .cards ul.keys code{display:inline-block;min-width:24px;text-align:center;border:1px solid var(--mute);border-bottom-width:3px;background:var(--paper);padding:0 6px;margin-right:4px;font-weight:600}
+.boards{display:flex;flex-wrap:wrap;gap:24px;margin:12px 0}
+.boards figure{margin:0;max-width:100%}
+.boards .art{overflow:auto;max-width:100%;border:1px solid var(--line);line-height:0}
+.boards iframe{border:0;display:block}
 footer{max-width:1100px;margin:0 auto;padding:16px;color:var(--mute);font-size:13px}
 @media (max-width:800px){.wrap{grid-template-columns:1fr}aside.toc{position:static;max-height:none}main{padding:16px}
 .hero{margin:-16px -16px 20px;padding:28px 16px}.cards{grid-template-columns:1fr}}
@@ -232,7 +240,7 @@ FONTS = ('<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="
 
 def page(fn, title, body, nav, toc=""):
     links = "".join('<a href="%s"%s>%s</a>' % (h, ' class="on"' if h == nav else "", t)
-                    for h, t in (("index.html", "HOME"), ("loading.html", "MANUAL"), ("quickref.html", "QUICK REF")))
+                    for h, t in (("index.html", "HOME"), ("loading.html", "MANUAL"), ("quickref.html", "QUICK REF"), ("boxart.html", "BOX ART")))
     wrap = '<div class="wrap">%s<main>%s</main></div>' % (toc, body) if toc else '<div class="wrap one"><main>%s</main></div>' % body
     doc = ('<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">'
            '<title>%s</title>%s<link rel="stylesheet" href="style.css"></head><body>'
@@ -240,6 +248,28 @@ def page(fn, title, body, nav, toc=""):
            '<footer>SIDJ %s by illobo/netmilk · a DJ-style tracker for the Commodore 64</footer></body></html>'
            % (html.escape(title), FONTS, logo_svg("lg"), links, wrap, VERSION))
     open(os.path.join(OUT, fn), "w").write(doc)
+
+
+def boxart():
+    """art/boxart boards as plain pages in boxart/ (minus the design tool's scripts), shown in boxart.html"""
+    os.makedirs(os.path.join(OUT, "boxart", "shots"), exist_ok=True)
+    for f in os.listdir(os.path.join(BOXART, "shots")):
+        shutil.copy(os.path.join(BOXART, "shots", f), os.path.join(OUT, "boxart", "shots", f))
+    figs = {}
+    for group, boards in BOARDS.items():
+        figs[group] = ""
+        for src, fn, cap in boards:
+            doc = open(os.path.join(BOXART, "project", src + ".dc.html")).read()
+            w, h = map(int, re.search(r'"width":(\d+),"height":(\d+)', doc).groups())
+            doc = doc.replace('<script src="./support.js"></script>\n', "").replace('src="../shots/', 'src="shots/')
+            doc = re.sub(r'<script type="text/x-dc".*?</script>\n', "", doc, flags=re.S)
+            open(os.path.join(OUT, "boxart", fn + ".html"), "w").write(doc)
+            figs[group] += ('<figure><div class="art"><iframe src="boxart/%s.html" width="%d" height="%d" title="%s" loading="lazy">'
+                            '</iframe></div><figcaption>%s · <a href="boxart/%s.html">open full size</a></figcaption></figure>'
+                            % (fn, w, h, html.escape(cap), cap, fn))
+    body = ('<h2>Box art</h2><p>The box and the reference card, as HTML pages. Open one full size to print it.</p>'
+            '<h3>Box</h3><div class="boards">%s</div><h3>Reference card</h3><div class="boards">%s</div>' % (figs["box"], figs["card"]))
+    page("boxart.html", "SIDJ box art", body, "boxart.html")
 
 
 def main():
@@ -298,6 +328,7 @@ def main():
 
     q = open(os.path.join(ROOT, "docs", "QUICKREF.md")).read().splitlines()
     page("quickref.html", "SIDJ quick reference", md(q), "quickref.html")
+    boxart()
 
     # home: the manual's title page, a download, the screens, the chapters
     d64 = os.path.join(B, "sidj.d64")
@@ -339,7 +370,7 @@ def main():
             + "<h3>Screens</h3><div class=\"gal\">%s</div>" % gal
             + "<h3>Manual</h3><ol>%s</ol>" % "".join('<li><a href="%s">%s</a></li>' % (fn, inline(t)) for fn, t, _ in chapters))
     page("index.html", "SIDJ · a DJ-style tracker for the C64", body, "index.html")
-    print("%s: %d pages, %d images" % (OUT, len(chapters) + 2, len(SIZES)))
+    print("%s: %d pages, %d images" % (OUT, len(chapters) + 3, len(SIZES)))
 
 
 if __name__ == "__main__":

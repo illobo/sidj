@@ -23,7 +23,8 @@ and the user's manual as readers with music, ten demo songs and three drum kits.
 Pick SIDJ EDITOR in the menu. The manual is on the disk (MANUAL) and in
 [docs/MANUAL.md](docs/MANUAL.md); the key card is
 [docs/QUICKREF.md](docs/QUICKREF.md). `site/` is the same manual as a small
-website with screenshots.
+website with screenshots and the box art, online at
+<https://illobo.github.io/sidj/>.
 
 ## Build
 

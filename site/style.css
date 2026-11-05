@@ -63,6 +63,10 @@ letter-spacing:1px;margin:8px 10px 8px 0;box-shadow:3px 3px 0 #dd8855,6px 6px 0 
 .disk li{margin:4px 0}
 .cards ul.keys{list-style:none;padding:0;display:flex;gap:14px;flex-wrap:wrap}
 .cards ul.keys code{display:inline-block;min-width:24px;text-align:center;border:1px solid var(--mute);border-bottom-width:3px;background:var(--paper);padding:0 6px;margin-right:4px;font-weight:600}
+.boards{display:flex;flex-wrap:wrap;gap:24px;margin:12px 0}
+.boards figure{margin:0;max-width:100%}
+.boards .art{overflow:auto;max-width:100%;border:1px solid var(--line);line-height:0}
+.boards iframe{border:0;display:block}
 footer{max-width:1100px;margin:0 auto;padding:16px;color:var(--mute);font-size:13px}
 @media (max-width:800px){.wrap{grid-template-columns:1fr}aside.toc{position:static;max-height:none}main{padding:16px}
 .hero{margin:-16px -16px 20px;padding:28px 16px}.cards{grid-template-columns:1fr}}
